@@ -1,7 +1,14 @@
+import { useState } from "react";
+
 import "./App.css";
+import FirstPage from "./components/FirstPage/FirstPage";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <FirstPage />
+    </>
+  );
 }
 
 export default App;
