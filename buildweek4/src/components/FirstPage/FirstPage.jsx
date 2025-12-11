@@ -2,6 +2,8 @@ import "./style.css";
 import { Container, Row, Col } from "react-bootstrap";
 import LefColAccount from "../LeftColAccount/LeftColAccout";
 import ReducedCustomFooter from "../customFooters/reducedCustomFooter/ReducedCustomFooter"
+import CustomNews from "../customNews/CustomNews";
+import Advertise from "../advertise/Advertise";
 
 const FirstPage = () => {
   return (
@@ -14,10 +16,12 @@ const FirstPage = () => {
           >
             <LefColAccount />
           </Col>
-          <Col md={5} className="bg-warning  ">
+          <Col md={6} className="bg-warning  ">
             Prova
           </Col>
           <Col md={3} className="bg-danger p-0">
+            <CustomNews />
+            <Advertise />
             <ReducedCustomFooter />
           </Col>
         </Row>
