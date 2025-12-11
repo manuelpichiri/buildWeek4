@@ -74,4 +74,47 @@
 
 .premium-div {
   height: 75px;
+  padding: 15px;
+}
+
+.premium-img {
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+}
+
+.icon-p-premium {
+  display: flex;
+  align-items: center;
+}
+
+.list-of-element,
+.li,
+a {
+  text-align: start;
+  list-style-type: none;
+  margin-bottom: 5px;
+  font-size: 12px;
+  text-decoration: none;
+  color: black;
+}
+
+.icon-list {
+  margin-right: 5px;
+}
+
+.line {
+  margin-bottom: 7px;
+}
+
+.line:hover {
+  text-decoration: underline;
+}
+
+.bolder {
+  font-weight: 600;
+}
+
+.icon-p-premium:hover {
+  color: cornflowerblue;
 }
