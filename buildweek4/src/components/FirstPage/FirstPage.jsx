@@ -2,6 +2,8 @@ import "./style.css";
 import { Container, Row, Col } from "react-bootstrap";
 import LefColAccount from "../LeftColAccount/LeftColAccout";
 import ReducedCustomFooter from "../customFooters/reducedCustomFooter/ReducedCustomFooter"
+import MessageBox from "../messages/MessageBox";
+
 
 const FirstPage = () => {
   return (
@@ -22,6 +24,8 @@ const FirstPage = () => {
           </Col>
         </Row>
       </Container>
+
+      <MessageBox />
     </>
   );
 };
