@@ -1,6 +1,8 @@
 import "./style.css";
 import { Container, Row, Col } from "react-bootstrap";
 import LefColAccount from "../LeftColAccount/LeftColAccout";
+import ReducedCustomFooter from "../customFooters/reducedCustomFooter/ReducedCustomFooter"
+
 const FirstPage = () => {
   return (
     <>
@@ -15,8 +17,8 @@ const FirstPage = () => {
           <Col md={5} className="bg-warning  ">
             Prova
           </Col>
-          <Col md={3} className="bg-danger">
-            Col
+          <Col md={3} className="bg-danger p-0">
+            <ReducedCustomFooter />
           </Col>
         </Row>
       </Container>
