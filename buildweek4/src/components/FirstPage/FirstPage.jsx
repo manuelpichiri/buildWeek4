@@ -2,28 +2,32 @@ import "./style.css";
 import { Container, Row, Col } from "react-bootstrap";
 import LefColAccount from "../LeftColAccount/LeftColAccout";
 import MainPage from "../mainPage/MainPage";
-import ReducedCustomFooter from "../customFooters/reducedCustomFooter/ReducedCustomFooter"
-import CustomNews from "../customNews/CustomNews";
-import Advertise from "../advertise/Advertise";
+import ReducedCustomFooter from "../customFooters/reducedCustomFooter/ReducedCustomFooter";
 import MessageBox from "../messages/MessageBox";
-
+import NavBarLinkedin from "../customNavbar/NavbarLinkedin";
+import Advertise from "../advertise/Advertise";
+import CustomNews from "../customNews/CustomNews";
 
 const FirstPage = () => {
   return (
     <>
+      <NavBarLinkedin />
       <Container>
         <Row className="g-5">
           <Col
-            md={3} lg={3}
+            md={3}
+            lg={3}
             className="d-flex align-items-center flex-column p-0 bg-dark"
           >
             <LefColAccount />
           </Col>
           <Col md={9} lg={6} className="  ">
-           <MainPage/>
+            <MainPage />
           </Col>
           <Col lg={3} className="bg-danger d-none d-lg-block">
-            Col
+            <CustomNews />
+            <Advertise />
+            <ReducedCustomFooter />
           </Col>
         </Row>
       </Container>
