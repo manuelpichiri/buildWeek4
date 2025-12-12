@@ -1,4 +1,5 @@
 import { Navbar, Nav, Container, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import FormControl from "react-bootstrap/FormControl";
 import "./NavBarLinkedin.css";
 import {
@@ -39,11 +40,14 @@ const NavBarLinkedin = () => {
         </Form>
         <Navbar.Toggle aria-controls="navbar-menu" />
         <Navbar.Collapse id="navbar-menu" className="justify-content-end">
-          <Nav className="container-items">
-            <Nav.Link eventKey="/Home" className="navbar-item" href="#">
+          <Nav className="container-items align-items-center">
+            <Link
+              to={`/`}
+              className="d-flex flex-column align-items-center navbar-item"
+            >
               <FaHome size={22} />
               <span>Home</span>
-            </Nav.Link>
+            </Link>
             <Nav.Link eventKey="/Rete" className="navbar-item" href="#">
               <FaUserFriends size={22} />
               <span>Rete</span>
@@ -60,10 +64,14 @@ const NavBarLinkedin = () => {
               <FaBell size={22} />
               <span>Notifiche</span>
             </Nav.Link>
-            <Nav.Link eventKey="/tu" className="navbar-item" href="#">
+
+            <Link
+              to={`/PaginaProfilo`}
+              className="d-flex flex-column align-items-center navbar-item"
+            >
               <FaUserCircle size={22} />
               <span>Tu</span>
-            </Nav.Link>
+            </Link>
           </Nav>
           <Dropdown eventKey="/aziende" className="navbar-item">
             <Dropdown.Toggle
