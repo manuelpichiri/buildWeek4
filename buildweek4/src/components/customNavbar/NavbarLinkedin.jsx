@@ -2,15 +2,18 @@ import { Navbar, Nav, Container, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import FormControl from "react-bootstrap/FormControl";
 import "./NavBarLinkedin.css";
+
 import {
-  FaHome,
-  FaUserFriends,
-  FaBriefcase,
-  FaCommentDots,
-  FaBell,
-  FaUserCircle,
-} from "react-icons/fa";
-import { MdApps } from "react-icons/md";
+  Home,
+  Users,
+  Briefcase,
+  MessageSquare,
+  Bell,
+  UserCircle,
+} from "lucide-react";
+
+import { LayoutGrid } from "lucide-react";
+
 import { Dropdown } from "react-bootstrap";
 
 const NavBarLinkedin = () => {
@@ -45,23 +48,23 @@ const NavBarLinkedin = () => {
               to={`/`}
               className="d-flex flex-column align-items-center navbar-item"
             >
-              <FaHome size={22} />
+              <Home size={22} />
               <span>Home</span>
             </Link>
             <Nav.Link eventKey="/Rete" className="navbar-item" href="#">
-              <FaUserFriends size={22} />
+              <Users size={22} />
               <span>Rete</span>
             </Nav.Link>
             <Nav.Link eventKey="/Lavoro" className="navbar-item" href="#">
-              <FaBriefcase size={22} />
+              <Briefcase size={22} />
               <span>Lavoro</span>
             </Nav.Link>
             <Nav.Link eventKey="/messaggi" className="navbar-item" href="#">
-              <FaCommentDots size={22} />
+              <MessageSquare size={22} />
               <span>Messaggi</span>
             </Nav.Link>
             <Nav.Link eventKey="/notifiche" className="navbar-item" href="#">
-              <FaBell size={22} />
+              <Bell size={22} />
               <span>Notifiche</span>
             </Nav.Link>
 
@@ -69,7 +72,7 @@ const NavBarLinkedin = () => {
               to={`/PaginaProfilo`}
               className="d-flex flex-column align-items-center navbar-item"
             >
-              <FaUserCircle size={22} />
+              <UserCircle size={22} />
               <span>Tu</span>
             </Link>
           </Nav>
@@ -78,7 +81,7 @@ const NavBarLinkedin = () => {
               variant="link"
               className="p-0 d-flex flex-column align-items-center"
             >
-              <MdApps size={30} />
+              <LayoutGrid size={30} />
               <span>Per le aziende</span>
             </Dropdown.Toggle>
             <Dropdown.Menu>
