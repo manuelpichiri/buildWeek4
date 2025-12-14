@@ -4,7 +4,7 @@ import { getMyProfile } from "../../api/profileApi";
 import { Pencil, Plus, Trash2 } from "lucide-react";
 import "./experience.css";
 import { useExperiences } from "../hook/useExperiences";
-import { Alert } from "react-bootstrap";
+import { Alert, Spinner } from "react-bootstrap";
 import DeleteExperienceModal from "./DeleteExperiencemodal";
 import EditExperienceModal from "./EditExperienceModal";
 
@@ -102,7 +102,13 @@ const ExperienceSection = () => {
           </button>
         </div>
 
-        {data && data.length > 0 ? (
+        {isLoading &&
+          <Spinner
+            className="d-block mx-auto"
+          />
+        }
+
+        {!isLoading && data?.length > 0 && (
           data.map((exp) => (
             <div className="exp-card" key={exp._id}>
               <div className="exp-info">
@@ -125,17 +131,15 @@ const ExperienceSection = () => {
                       />
                     </button>
 
+                    <button
+                      className="delete-experience-btn"
+                      onClick={() => confirmDelete(exp._id)}
+                    >
+                      <Trash2
+                        size={18}
+                      />
+                    </button>
 
-                    {!(isLoading && deletingExpId === exp._id && !error) && (
-                      <button
-                        className="delete-experience-btn"
-                        onClick={() => confirmDelete(exp._id)}
-                      >
-                        <Trash2
-                          size={18}
-                        />
-                      </button>
-                    )}
                   </div>
                 </div>
                 <p className="company">{exp.company}</p>
@@ -149,7 +153,10 @@ const ExperienceSection = () => {
 
             </div>
           ))
-        ) : (
+        )}
+
+
+        {!isLoading && profile?._id && data.length === 0 && !error && (
 
           <Alert
             className="bg-light border-secondary"
@@ -157,7 +164,15 @@ const ExperienceSection = () => {
           >
             <strong>Potresti aggiungere la tua esperienza</strong>
             <p>Ti consigliamo di aggiungere al profilo la tua esperienza lavorativa, così potrai mostrare ai recruiter come metti a frutto le tue competenze.</p></Alert>
+        )}
 
+        {!isLoading && data.length === 0 && error && (
+          <Alert
+            className="text-center"
+            variant="danger"
+          >
+            {error}
+          </Alert>
         )}
 
         {openModal && (
