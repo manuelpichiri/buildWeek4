@@ -27,3 +27,27 @@ export const getProfileById = async (userId) => {
   if (!res.ok) throw new Error("Errore nel caricamento profilo utente");
   return res.json();
 };
+
+// PUT → modifica il tuo profilo
+export const updateProfile = async (updatedProfileData) => {
+  try {
+    const response = await fetch(BASE_URL, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${TOKEN}`,
+      },
+      body: JSON.stringify(updatedProfileData),
+    });
+
+    if (!response.ok) {
+      throw new Error("Errore durante l'aggiornamento del profilo");
+    }
+
+    const updatedProfile = await response.json();
+    return updatedProfile;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};

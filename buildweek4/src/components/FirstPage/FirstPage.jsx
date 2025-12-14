@@ -24,7 +24,7 @@ const FirstPage = () => {
           <Col md={9} lg={6} className="  ">
             <MainPage />
           </Col>
-          <Col lg={3} className="bg-danger d-none d-lg-block">
+          <Col lg={3} className="bg-danger d-lg-block">
             <CustomNews />
             <Advertise />
             <ReducedCustomFooter />

@@ -13,7 +13,7 @@ const CustomFooter = () => {
       className="footer-main-container"
     >
       <div
-        className="d-flex gap-3"
+        className="d-flex flex-column flex-sm-row gap-3"
       >
         <ul
           className="custom-footer-links-list list-unstyled"
