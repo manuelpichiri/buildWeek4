@@ -40,21 +40,21 @@ const ReducedCustomFooter = () => {
                   >
                     <Dropdown.Toggle
                       as="div"
-                      className="reduced-custom-footer-link dropdown-toggle-wrapper hide-bootstrap-caret"
+                      className="reduced-custom-footer-link dropdown-toggle-wrapper"
                       onClick={() =>
                         setIsOpenIndex(isOpenIndex === index ? null : index)
                       }
                     >
-                      <span
-                        className="link-text"
+                      <a
+                        className="sublink-text"
                       >
                         {link.label}
-                      </span>
-                      <span
+                      </a>
+                      <a
                         className="footer-dropdown-caret"
                       >
                         ▼
-                      </span>
+                      </a>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu
@@ -73,7 +73,7 @@ const ReducedCustomFooter = () => {
                 ) : (
 
                   <a
-                    className="custom-footer-link"
+                    className="custom-footer-link custom-footer-no-dropdown-link"
                     href={link.href}
                   >
                     {link.label}
