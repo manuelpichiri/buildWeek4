@@ -1,5 +1,6 @@
 import { Navbar, Nav, Container, Form } from "react-bootstrap";
 import FormControl from "react-bootstrap/FormControl";
+import { Search } from "lucide-react";
 import "./NavBarLinkedin.css";
 import {
   FaHome,
@@ -30,13 +31,14 @@ const NavBarLinkedin = () => {
           />
         </Navbar.Brand>
         <Form className="search-container d-flex align-items-center">
-          <span className="search-icon">🔍</span>
+          <Search className="search-icon" size={16} />
           <FormControl
             type="search"
             placeholder="Cerca"
             className="search-input"
           />
         </Form>
+
         <Navbar.Toggle aria-controls="navbar-menu" />
         <Navbar.Collapse id="navbar-menu" className="justify-content-end">
           <Nav className="container-items">
