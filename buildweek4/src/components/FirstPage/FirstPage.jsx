@@ -1,27 +1,38 @@
 import "./style.css";
 import { Container, Row, Col } from "react-bootstrap";
 import LefColAccount from "../LeftColAccount/LeftColAccout";
-import ReducedCustomFooter from "../customFooters/reducedCustomFooter/ReducedCustomFooter"
+import MainPage from "../mainPage/MainPage";
+import ReducedCustomFooter from "../customFooters/reducedCustomFooter/ReducedCustomFooter";
+import MessageBox from "../messages/MessageBox";
+import NavBarLinkedin from "../customNavbar/NavbarLinkedin";
+import Advertise from "../advertise/Advertise";
+import CustomNews from "../customNews/CustomNews";
 
 const FirstPage = () => {
   return (
     <>
+      <NavBarLinkedin />
       <Container>
-        <Row>
+        <Row className="g-5">
           <Col
             md={3}
+            lg={3}
             className="d-flex align-items-center flex-column p-0 bg-dark"
           >
             <LefColAccount />
           </Col>
-          <Col md={5} className="bg-warning  ">
-            Prova
+          <Col md={9} lg={6} className="  ">
+            <MainPage />
           </Col>
-          <Col md={3} className="bg-danger p-0">
+          <Col lg={3} className="bg-danger d-lg-block">
+            <CustomNews />
+            <Advertise />
             <ReducedCustomFooter />
           </Col>
         </Row>
       </Container>
+
+      <MessageBox />
     </>
   );
 };
