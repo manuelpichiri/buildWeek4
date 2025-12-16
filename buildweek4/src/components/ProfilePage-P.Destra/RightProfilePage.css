@@ -1,0 +1,135 @@
+.rp-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rp-card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.rp-card-header {
+  padding: 14px 14px 10px 14px;
+}
+
+.rp-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.rp-subtitle {
+  font-size: 12px;
+  color: #666;
+  margin: 4px 0 0 0;
+}
+
+.rp-divider {
+  height: 1px;
+  background: #efefef;
+}
+
+.rp-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+}
+
+.rp-row + .rp-row {
+  border-top: 1px solid #f2f2f2;
+}
+
+.rp-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50px;
+  object-fit: cover;
+  flex: 0 0 48px;
+  background: #f2f2f2;
+}
+
+.rp-avatar.square {
+  border-radius: 10px;
+}
+
+.rp-row-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.rp-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.rp-desc {
+  font-size: 12px;
+  color: #666;
+  margin: 4px 0 0 0;
+  line-height: 1.2;
+}
+
+.rp-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rp-btn {
+  border: 1px solid #666;
+  background: transparent;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+}
+
+.rp-btn:hover {
+  background: #f3f3f3;
+}
+
+.rp-showmore {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  border-top: 1px solid #efefef;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  text-align: center;
+}
+
+.rp-showmore:hover {
+  background: #f7f7f7;
+}
+
+.rp-edit {
+  border: 0;
+  background: transparent;
+  color: #555;
+  font-size: 16px;
+  padding: 0;
+}
+
+.rp-ad-img {
+  width: 100%;
+  display: block;
+}
+
+/* class tittle card and text card*/
+.title-card-d {
+  font-size: 16px;
+}
+
+.text-card-d{
+  font-size: 13px;
+}
