@@ -70,8 +70,8 @@ const SectionSearchInput = () => {
                 x2="18"
                 y2="8"
                 stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
+                strokeWidth="2"
+                strokeLinecap="round"
               />
               <line
                 x1="6"
@@ -79,8 +79,8 @@ const SectionSearchInput = () => {
                 x2="18"
                 y2="12"
                 stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
+                strokeWidth="2"
+                strokeLinecap="round"
               />
               <line
                 x1="6"
@@ -88,8 +88,8 @@ const SectionSearchInput = () => {
                 x2="12"
                 y2="16"
                 stroke="white"
-                stroke-width="2"
-                stroke-linecap="round"
+                strokeWidth="2"
+                strokeLinecap="round"
               />
             </svg>
 

@@ -1,13 +1,13 @@
-import React from "react";
 import SectionSearchInput from "./sectionSearch/SectionSearchInput";
-
 import SectionOrderPost from "./sectionOrderPost/SectionOrderPost";
+import SectionFeed from "./sectionFeed/SectionFeed";
 
 const MainPage = () => {
   return (
     <div>
       <SectionSearchInput />
-     <SectionOrderPost/>
+      <SectionOrderPost />
+      <SectionFeed />
     </div>
   );
 };
