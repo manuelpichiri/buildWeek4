@@ -16,6 +16,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .custom-post-header-author-logo {
@@ -34,6 +35,8 @@
   display: flex;
   flex-direction: column;
   align-items: start;
+  min-width: 0;
+  flex: 1;
 }
 
 .custom-post-header-author-description h5 {
@@ -49,10 +52,10 @@
 }
 
 .custom-post-header-author-description p {
-  width: 80%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .custom-post-header-follow-container {
@@ -136,6 +139,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 6px;
   margin: 4px 0;
   padding: 10px 14px;
