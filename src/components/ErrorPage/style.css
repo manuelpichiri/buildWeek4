@@ -1,0 +1,56 @@
+.prova {
+  background-image: url("../../../public/assets/ErrorPage.png");
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.text-custom {
+  text-align: center;
+  font-weight: 800;
+  font-size: x-large;
+}
+.col-custom {
+  position: relative;
+  top: 50px;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-div-logo {
+  width: 84px;
+}
+
+.center-div {
+  width: 700px;
+  display: flex;
+  place-items: center;
+}
+
+.h1-custom {
+  font-weight: 300;
+}
+.paragraph-description {
+  color: rgb(96, 96, 96);
+  text-align: center;
+  font-size: 22px;
+}
+
+.link-custom-erorr {
+  border: 1px solid #6388d7;
+  font-size: 20px;
+  padding: 10px;
+}
+
+@media (max-width: 425px) {
+  .reset-padding {
+    padding: 0;
+    margin-left: 13px;
+  }
+}

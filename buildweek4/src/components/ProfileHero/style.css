@@ -1,0 +1,91 @@
+.hero-div-page-profile {
+  width: 100%;
+  height: 201px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.image-profile {
+  width: 152px;
+  height: 152px;
+  border-radius: 50%;
+  position: absolute;
+  top: 100px;
+  left: 25px;
+}
+
+.first-div-profile-hero {
+  position: relative;
+  background-color: white;
+  width: 100%;
+}
+.div-pencil-border-bg {
+  background-color: white;
+  padding: 4px;
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.button-pencil {
+  border: none;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.li-custom-point {
+  list-style: none;
+}
+
+.custom-img-study {
+  width: 32px;
+  height: 32px;
+}
+
+.link-decoration {
+  font-size: small;
+  font-weight: 600;
+}
+
+.div-dotted {
+  font-weight: 700;
+  font-size: 12px;
+  border: 1px;
+  border-style: dashed;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+.div-dotted:hover {
+  background-color: rgba(42, 125, 163, 0.389);
+  color: #062dca;
+}
+.border-col {
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.131);
+  border-radius: 10px;
+}
+
+.p-custom-profile {
+  color: rgba(48, 47, 47, 0.535);
+  font-size: 13px;
+}
+
+.border-button {
+  background-color: #3a69f5;
+  color: white;
+  border-radius: 20px;
+}
+
+.border-button:hover {
+  background-color: rgba(42, 125, 163, 0.389);
+  color: #062dca;
+}
+
+.prova-text {
+  text-align: end;
+}

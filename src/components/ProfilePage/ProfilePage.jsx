@@ -3,6 +3,7 @@ import MessageBox from "../messages/MessageBox";
 import ExperienceSection from "../experience/ExperienceSection";
 import { Col, Container, Row } from "react-bootstrap";
 import ProfileHero from "../ProfileHero/ProfileHero";
+
 const ProfilePage = () => {
   return (
     <>

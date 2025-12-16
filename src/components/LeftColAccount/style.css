@@ -1,0 +1,118 @@
+.div-img-custom {
+  height: 58px;
+  border-radius: 7px;
+}
+
+.border-general-div {
+  border-radius: 7px;
+}
+
+.border-div {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.img-custom {
+  object-fit: cover;
+}
+
+.account-img {
+  object-fit: cover;
+  width: 72px;
+  height: 72px;
+  z-index: 1;
+  border-radius: 50%;
+  position: absolute;
+  top: -28px;
+}
+
+.div-account-img {
+  margin-left: 12px;
+  position: relative;
+}
+
+.link-custom {
+  text-decoration: none;
+  color: black;
+}
+.paragraph-custom {
+  font-size: larger;
+}
+
+.paragraph-custom-city {
+  font-size: small;
+}
+.paragraph-custom-study {
+  font-size: small;
+  font-weight: 500;
+}
+
+.custom-img-study {
+  width: 16px;
+  height: 16px;
+  margin-right: 3px;
+  object-fit: cover;
+}
+
+.span-custom {
+  color: rgba(50, 50, 50, 0.895);
+}
+
+.link-connect {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  text-decoration: none;
+  color: black;
+}
+
+.div-link-connect {
+  padding: 16px;
+  height: 60px;
+}
+
+.premium-div {
+  padding: 15px;
+}
+
+.premium-img {
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+}
+
+.icon-p-premium {
+  display: flex;
+  align-items: center;
+}
+
+.list-of-element,
+.li,
+a {
+  text-align: start;
+  list-style-type: none;
+  margin-bottom: 5px;
+  font-size: 12px;
+  text-decoration: none;
+  color: black;
+}
+
+.icon-list {
+  margin-right: 5px;
+}
+
+.line {
+  margin-bottom: 7px;
+}
+
+.line:hover {
+  text-decoration: underline;
+}
+
+.bolder {
+  font-weight: 600;
+}
+
+.icon-p-premium:hover {
+  color: cornflowerblue;
+}
