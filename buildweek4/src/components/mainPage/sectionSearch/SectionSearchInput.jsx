@@ -3,7 +3,7 @@ import "./style.css";
 
 const SectionSearchInput = () => {
   return (
-    <Container className="mt-2 d-flex flex-column gap-1 section-search bg-white">
+    <Container className="mt-4 d-flex flex-column gap-1 section-search bg-white">
       <Row>
         <Col className="d-flex justify-content-between gap-2">
           <div>

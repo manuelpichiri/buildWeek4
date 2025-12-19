@@ -26,7 +26,7 @@ const CustomNews = () => {
   return (
 
     <div
-      className="custom-news-main-container"
+      className="custom-news-main-container mt-4"
     >
       <div
         className="d-flex align-items-center justify-content-between"

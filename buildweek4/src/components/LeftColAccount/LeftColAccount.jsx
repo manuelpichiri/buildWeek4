@@ -25,7 +25,7 @@ const LefColAccount = () => {
           <>
             <Row>
               <Col className="reset-padding">
-                <div className="bg-white mt-2 mb-2 border-general-div ">
+                <div className="bg-white mt-4 mb-2 border-general-div ">
                   <div className="w-100 div-img-custom border-div">
                     <a href="#">
                       <img
