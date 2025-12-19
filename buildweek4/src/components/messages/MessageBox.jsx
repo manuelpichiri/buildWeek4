@@ -31,7 +31,8 @@ const MessageBox = () => {
 
   return (
     <>
-      <div className={`msg-wrapper  ${open ? "open" : ""}`}>
+      <div className={`msg-wrapper ${open ? "open" : ""} d-none d-lg-block`}>
+
         {dockMenuOpen && (
           <div className="dock-list-panel" onClick={(e) => e.stopPropagation()}>
             <button className="dock-list-item">Gestisci conversazioni</button>

@@ -1,12 +1,6 @@
-import React from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import "./style.css";
-import {
-  ArrowLeftCircleIcon,
-  FootprintsIcon,
-  PhoneOutgoing,
-  Video,
-} from "lucide-react";
+
 const SectionSearchInput = () => {
   return (
     <Container className="mt-2 d-flex flex-column gap-1 section-search bg-white">
@@ -15,7 +9,7 @@ const SectionSearchInput = () => {
           <div>
             <img
               className="img-account"
-              src="../../../public/assets/images.png"
+              src="../../../assets/images.png"
               alt="profilo"
             />
           </div>
