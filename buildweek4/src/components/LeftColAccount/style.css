@@ -5,6 +5,7 @@
 
 .border-general-div {
   border-radius: 7px;
+  border: 1px solid #cecece;
 }
 
 .border-div {

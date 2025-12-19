@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 const SectionSearchInput = () => {
   return (
-    <Container className="mt-2 d-flex flex-column gap-1 section-search">
+    <Container className="mt-2 d-flex flex-column gap-1 section-search bg-white">
       <Row>
         <Col className="d-flex justify-content-between gap-2">
           <div>
@@ -19,7 +19,9 @@ const SectionSearchInput = () => {
               alt="profilo"
             />
           </div>
-          <Button className="flex-grow-1 rounded-5 btn-new-post">Crea un post</Button>
+          <Button className="flex-grow-1 rounded-5 btn-new-post">
+            Crea un post
+          </Button>
         </Col>
       </Row>
       <Row className="rowButtons">

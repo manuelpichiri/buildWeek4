@@ -28,8 +28,7 @@ export default function NewMessagePanel({ onClose }) {
   if (!mounted) return null;
 
   return createPortal(
-    <div className="new-message-panel" onClick={(e) => e.stopPropagation()}>
-      
+    <div className="new-message-panel " onClick={(e) => e.stopPropagation()}>
       <div className="newmsg-header">
         <h3 className="newmsg-title">Nuovo messaggio</h3>
         <button className="close-btn" onClick={onClose}>
@@ -64,7 +63,9 @@ export default function NewMessagePanel({ onClose }) {
                 ) : (
                   <div className="newmsg-avatar-placeholder"></div>
                 )}
-                <span>{u.name} {u.surname}</span>
+                <span>
+                  {u.name} {u.surname}
+                </span>
               </div>
             ))}
 
@@ -75,10 +76,8 @@ export default function NewMessagePanel({ onClose }) {
         </>
       )}
 
-
       {selectedUser && (
         <div className="write-message-container">
-
           <div className="write-msg-user">
             {selectedUser.image ? (
               <img src={selectedUser.image} className="newmsg-avatar" />
@@ -86,7 +85,7 @@ export default function NewMessagePanel({ onClose }) {
               <div className="newmsg-avatar-placeholder"></div>
             )}
             <p className="msg-to-name">
-             {selectedUser.name} {selectedUser.surname}
+              {selectedUser.name} {selectedUser.surname}
             </p>
           </div>
 
@@ -100,7 +99,6 @@ export default function NewMessagePanel({ onClose }) {
           </button>
         </div>
       )}
-
     </div>,
     document.body
   );

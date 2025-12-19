@@ -1,0 +1,21 @@
+.button-moda-upgrade-color {
+  background-color: #f9c982;
+  font-weight: 500;
+}
+
+.button-moda-upgrade-color:hover {
+  background-color: #e9a53f;
+}
+
+.span-font-size-modal-upgrade {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.img-size-blured {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  filter: blur(1.5px);
+  margin-right: 5px;
+}
