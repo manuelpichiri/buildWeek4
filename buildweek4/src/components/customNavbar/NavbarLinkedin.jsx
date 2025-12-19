@@ -11,81 +11,144 @@ import {
   MessageSquare,
   Bell,
   UserCircle,
+  Grip
 } from "lucide-react";
 
-import { LayoutGrid } from "lucide-react";
-
 import { Dropdown } from "react-bootstrap";
+import { useState } from "react";
 
 const NavBarLinkedin = () => {
+
+  const [isOpenSearchInput, setIsOpenSearchInput] = useState(false)
+
+  const handleSearchInputVisibility = () => {
+
+    setIsOpenSearchInput(!isOpenSearchInput)
+
+  }
+
   return (
+
     <Navbar
       bg="light"
-      expand="lg"
-      fixed="top"
-      className="navbar-custom shadow-sm"
       sticky="top"
+      className="navbar-custom border-bottom shadow-sm py-0"
     >
-      <Container className="navbar-container">
-        <Navbar.Brand href="#">
-          <img
-            className="img-fluid linkedin-logo"
-            src="data:image/png;base64,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"
-            alt="linkedin"
-          />
-        </Navbar.Brand>
-        <Form className="search-container d-flex align-items-center">
-          <Search className="search-icon" size={16} />
-          <FormControl
-            type="search"
-            placeholder="Cerca"
-            className="search-input"
-          />
-        </Form>
-
-        <Navbar.Toggle aria-controls="navbar-menu" />
-        <Navbar.Collapse id="navbar-menu" className="justify-content-end">
-          <Nav className="container-items align-items-center">
-            <Link
+      <Container className="d-flex align-items-center justify-content-between flex-nowrap">
+        <div className={`d-flex align-items-center ${isOpenSearchInput ? "flex-grow-1" : ""}`}>
+          <Navbar.Brand
+            as={Link}
+            to={`/`}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="#0a66c2" className="mercado-match" width="40" height="40" focusable="false">
+              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"></path>
+            </svg>
+          </Navbar.Brand>
+          <Form className={`search-container d-flex align-items-center ${isOpenSearchInput ? "flex-grow-1" : ""}`}>
+            <div className="position-relative w-100 d-flex align-items-center">
+              <Search
+                className="search-icon-inside"
+                onClick={handleSearchInputVisibility}
+                size={18}
+                color="rgba(0, 0, 0, 0.6)"
+              />
+              <FormControl
+                type="search"
+                placeholder="Cerca"
+                className={`search-input d-none d-md-block ${isOpenSearchInput ? "d-block w-100" : ""}`}
+                autoFocus={isOpenSearchInput}
+              />
+            </div>
+          </Form>
+        </div>
+        <div className={`${isOpenSearchInput ? "d-none" : "d-flex"} d-md-flex align-items-center ms-auto`}>
+          <Nav className="container-items d-flex flex-row align-items-center">
+            <Nav.Link
+              as={Link}
               to={`/`}
-              className="d-flex flex-column align-items-center navbar-item"
+              className="navbar-item"
             >
-              <Home size={22} />
-              <span>Home</span>
-            </Link>
-            <Nav.Link eventKey="/Rete" className="navbar-item" href="#">
-              <Users size={22} />
-              <span>Rete</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" width="24" height="24" focusable="false">
+                <path d="M23 9v2h-2v7a3 3 0 01-3 3h-4v-6h-4v6H6a3 3 0 01-3-3v-7H1V9l11-7z"></path>
+              </svg>
+              <span
+                className="d-none d-lg-block"
+              >Home</span>
             </Nav.Link>
-            <Nav.Link eventKey="/Lavoro" className="navbar-item" href="#">
-              <Briefcase size={22} />
-              <span>Lavoro</span>
+            <Nav.Link
+              as={Link}
+              to="/Rete"
+              className="navbar-item"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" width="24" height="24" focusable="false">
+                <path d="M12 16v6H3v-6a3 3 0 013-3h3a3 3 0 013 3zm5.5-3A3.5 3.5 0 1014 9.5a3.5 3.5 0 003.5 3.5zm1 2h-2a2.5 2.5 0 00-2.5 2.5V22h7v-4.5a2.5 2.5 0 00-2.5-2.5zM7.5 2A4.5 4.5 0 1012 6.5 4.49 4.49 0 007.5 2z"></path>
+              </svg>
+              <span
+                className="d-none d-lg-block"
+              >Rete</span>
             </Nav.Link>
-            <Nav.Link eventKey="/messaggi" className="navbar-item" href="#">
-              <MessageSquare size={22} />
-              <span>Messaggi</span>
+            <Nav.Link
+              as={Link}
+              to="/Lavoro"
+              className="navbar-item"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" width="24" height="24" focusable="false">
+                <path d="M17 6V5a3 3 0 00-3-3h-4a3 3 0 00-3 3v1H2v4a3 3 0 003 3h14a3 3 0 003-3V6zM9 5a1 1 0 011-1h4a1 1 0 011 1v1H9zm10 9a4 4 0 003-1.38V17a3 3 0 01-3 3H5a3 3 0 01-3-3v-4.38A4 4 0 005 14z"></path>
+              </svg>
+              <span
+                className="d-none d-lg-block"
+              >Lavoro</span>
             </Nav.Link>
-            <Nav.Link eventKey="/notifiche" className="navbar-item" href="#">
-              <Bell size={22} />
-              <span>Notifiche</span>
+            <Nav.Link
+              as={Link}
+              to="/messaggi"
+              className="navbar-item"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" width="24" height="24" focusable="false">
+                <path d="M16 4H8a7 7 0 000 14h4v4l8.16-5.39A6.78 6.78 0 0023 11a7 7 0 00-7-7zm-8 8.25A1.25 1.25 0 119.25 11 1.25 1.25 0 018 12.25zm4 0A1.25 1.25 0 1113.25 11 1.25 1.25 0 0112 12.25zm4 0A1.25 1.25 0 1117.25 11 1.25 1.25 0 0116 12.25z"></path>
+              </svg>
+              <span
+                className="d-none d-lg-block"
+              >Messaggi</span>
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/notifiche"
+              className="navbar-item"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" width="24" height="24" focusable="false">
+                <path d="M22 19h-8.28a2 2 0 11-3.44 0H2v-1a4.52 4.52 0 011.17-2.83l1-1.17h15.7l1 1.17A4.42 4.42 0 0122 18zM18.21 7.44A6.27 6.27 0 0012 2a6.27 6.27 0 00-6.21 5.44L5 13h14z"></path>
+              </svg>
+              <span
+                className="d-none d-lg-block"
+              >Notifiche</span>
             </Nav.Link>
 
-            <Link
+            <Nav.Link
+              as={Link}
               to={`/PaginaProfilo`}
-              className="d-flex flex-column align-items-center navbar-item"
+              className="navbar-item"
             >
               <UserCircle size={22} />
-              <span>Tu</span>
-            </Link>
+              <span
+                className="d-none d-lg-block"
+              >Tu</span>
+            </Nav.Link>
           </Nav>
-          <Dropdown eventKey="/aziende" className="navbar-item">
-            <Dropdown.Toggle
-              variant="link"
-              className="p-0 d-flex flex-column align-items-center"
-            >
-              <LayoutGrid size={30} />
-              <span>Per le aziende</span>
-            </Dropdown.Toggle>
+          <Dropdown
+            className="navbar-item"
+          >
+            <div className="d-flex flex-column align-items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24" fill="currentColor" width="24" height="24" focusable="false">
+                <path d="M3 3h4v4H3zm7 4h4V3h-4zm7-4v4h4V3zM3 14h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4zM3 21h4v-4H3zm7 0h4v-4h-4zm7 0h4v-4h-4z"></path>
+              </svg>
+              <Dropdown.Toggle
+                variant="link"
+                className="p-0 d-flex align-items-center text-decoration-none shadow-none text-secondary d-none d-lg-block"
+              >
+                <span className="text-nowrap">Per le aziende</span>
+              </Dropdown.Toggle>
+            </div>
             <Dropdown.Menu>
               <Dropdown.Item href="#">Prodotti</Dropdown.Item>
               <Dropdown.Item href="#">Servizi</Dropdown.Item>
@@ -95,9 +158,10 @@ const NavBarLinkedin = () => {
           <a className="link-navbar" href="#">
             Prova Premium per 0 EUR
           </a>
-        </Navbar.Collapse>
+        </div>
       </Container>
     </Navbar>
+
   );
 };
 
