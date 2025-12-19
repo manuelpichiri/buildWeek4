@@ -10,13 +10,15 @@ const ProfilePage = () => {
     <>
       <Layout>
         <Container>
-          <Row>
+          <Row
+            className="mt-4"
+          >
             <Col md={8} xs={12}>
               <ProfileHero />
               <ExperienceSection />
             </Col>
 
-            <Col md={4} xs={12} className="bg-warning">
+            <Col md={4} xs={12}>
               <RightProfilePage />
             </Col>
           </Row>

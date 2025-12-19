@@ -77,7 +77,7 @@ const ProfileHero = () => {
                 <div className="first-div-profile-hero">
                   <img
                     className="hero-div-page-profile"
-                    src="/assets/Consigli-su-come-fare-foto-allo-spazio-qn85thdixup7eg60zpvmmsiqoe3gtbq4m60dospmi8.jpg"
+                    src="/assets/spazio.jpg"
                   />
                   <div className="div-pencil-border-bg d-flex align-items-center justify-content-center">
                     <Dropdown className="p-0  0 dropdwon-pencil-hero-img ">
