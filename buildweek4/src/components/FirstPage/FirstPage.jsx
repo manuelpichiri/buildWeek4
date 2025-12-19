@@ -21,7 +21,7 @@ const FirstPage = () => {
           >
             <LefColAccount />
           </Col>
-          <Col md={9} lg={6} className="  ">
+          <Col md={9} lg={6} className="p-0">
             <MainPage />
           </Col>
           <Col lg={3} className="bg-danger d-lg-block">

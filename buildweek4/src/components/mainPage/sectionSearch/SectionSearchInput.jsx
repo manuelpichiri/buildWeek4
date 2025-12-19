@@ -1,21 +1,15 @@
-import React from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import "./style.css";
-import {
-  ArrowLeftCircleIcon,
-  FootprintsIcon,
-  PhoneOutgoing,
-  Video,
-} from "lucide-react";
+
 const SectionSearchInput = () => {
   return (
-    <Container className="mt-2 d-flex flex-column gap-1 section-search">
+    <Container fluid className="mt-2 d-flex flex-column gap-1 section-search">
       <Row>
         <Col className="d-flex justify-content-between gap-2">
           <div>
             <img
               className="img-account"
-              src="../../../public/assets/images.png"
+              src="../../../assets/images.png"
               alt="profilo"
             />
           </div>

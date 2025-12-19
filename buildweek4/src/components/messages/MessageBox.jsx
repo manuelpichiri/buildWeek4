@@ -25,7 +25,7 @@ const MessageBox = () => {
 
   return (
     <>
-      <div className={`msg-wrapper ${open ? "open" : ""}`}>
+      <div className={`msg-wrapper ${open ? "open" : ""} d-none d-lg-block`}>
 
         {dockMenuOpen && (
           <div
@@ -150,7 +150,7 @@ const MessageBox = () => {
               className="dock-btn"
               onClick={(e) => {
                 e.stopPropagation();
-                setNewMessageOpen(true); 
+                setNewMessageOpen(true);
               }}
             >
               <SquarePen size={18} color="black" />
@@ -181,8 +181,8 @@ const MessageBox = () => {
         <NewMessagePanel
           onClose={() => setNewMessageOpen(false)}
           onMessageSent={(user) => {
-            setSelectedUser(user); 
-            setOpen(true);         
+            setSelectedUser(user);
+            setOpen(true);
           }}
         />
       )}
