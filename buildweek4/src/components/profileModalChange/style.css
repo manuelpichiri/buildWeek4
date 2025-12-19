@@ -1,0 +1,16 @@
+input {
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.div-parents div {
+  margin-bottom: 20px;
+}
+
+.div-name-surname {
+  margin-bottom: 10px;
+}
+
+.button-save {
+  border-radius: 20px;
+}

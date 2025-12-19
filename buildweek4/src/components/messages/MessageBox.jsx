@@ -2,8 +2,14 @@ import { useState, useEffect } from "react";
 import "./messages.css";
 import MessageList from "./MessageList";
 import NewMessagePanel from "./NewMessagePanel";
-import { UserCircle, ChevronUp, MoreHorizontal, SquarePen, Search, SlidersHorizontal } from "lucide-react";
-
+import {
+  UserCircle,
+  ChevronUp,
+  MoreHorizontal,
+  SquarePen,
+  Search,
+  SlidersHorizontal,
+} from "lucide-react";
 
 const MessageBox = () => {
   const [open, setOpen] = useState(false);
@@ -28,13 +34,14 @@ const MessageBox = () => {
       <div className={`msg-wrapper ${open ? "open" : ""} d-none d-lg-block`}>
 
         {dockMenuOpen && (
-          <div
-            className="dock-list-panel"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="dock-list-panel" onClick={(e) => e.stopPropagation()}>
             <button className="dock-list-item">Gestisci conversazioni</button>
-            <button className="dock-list-item">Impostazioni messaggistica</button>
-            <button className="dock-list-item">Imposta messaggio di assenza</button>
+            <button className="dock-list-item">
+              Impostazioni messaggistica
+            </button>
+            <button className="dock-list-item">
+              Imposta messaggio di assenza
+            </button>
           </div>
         )}
 
@@ -69,18 +76,21 @@ const MessageBox = () => {
               >
                 <button className="filter-item">Da leggere</button>
                 <button className="filter-item">Lavoro</button>
-                <button className="filter-item">Contrasegnati con una stella</button>
+                <button className="filter-item">
+                  Contrasegnati con una stella
+                </button>
                 <button className="filter-item">Messaggi InMail</button>
                 <button className="filter-item">Collegamenti</button>
                 <button className="filter-item">Archiviati</button>
                 <button className="filter-item">Posta indesiderata</button>
-
               </div>
             )}
 
             <div className="tabs-wrapper">
               <button
-                className={`tab-btn ${activeTab === "inEvidenza" ? "active" : ""}`}
+                className={`tab-btn ${
+                  activeTab === "inEvidenza" ? "active" : ""
+                }`}
                 onClick={() => setActiveTab("inEvidenza")}
               >
                 In evidenza
@@ -125,7 +135,6 @@ const MessageBox = () => {
           </div>
         )}
 
-
         <div className="dock-bar">
           <div className="dock-left">
             <UserCircle size={22} color="black" />
@@ -133,8 +142,6 @@ const MessageBox = () => {
           </div>
 
           <div className="dock-right">
-
-
             <button
               className="dock-btn"
               onClick={(e) => {
@@ -156,7 +163,6 @@ const MessageBox = () => {
               <SquarePen size={18} color="black" />
             </button>
 
-
             <button
               className="dock-btn"
               onClick={(e) => {
@@ -176,7 +182,6 @@ const MessageBox = () => {
         </div>
       </div>
 
-
       {newMessageOpen && (
         <NewMessagePanel
           onClose={() => setNewMessageOpen(false)}
@@ -186,7 +191,6 @@ const MessageBox = () => {
           }}
         />
       )}
-
     </>
   );
 };

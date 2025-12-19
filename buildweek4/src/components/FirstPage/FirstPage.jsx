@@ -1,6 +1,6 @@
 import "./style.css";
 import { Container, Row, Col } from "react-bootstrap";
-import LefColAccount from "../LeftColAccount/LeftColAccout";
+import LefColAccount from "../LeftColAccount/LeftColAccount";
 import MainPage from "../mainPage/MainPage";
 import ReducedCustomFooter from "../customFooters/reducedCustomFooter/ReducedCustomFooter";
 import MessageBox from "../messages/MessageBox";
@@ -17,14 +17,15 @@ const FirstPage = () => {
           <Col
             md={3}
             lg={3}
-            className="d-flex align-items-center flex-column p-0 bg-dark"
+            className="d-flex align-items-center flex-column p-0  "
           >
             <LefColAccount />
           </Col>
-          <Col md={9} lg={6} className="p-0">
+
+          <Col md={9} lg={6}>
             <MainPage />
           </Col>
-          <Col lg={3} className="bg-danger d-lg-block">
+          <Col md={8} lg={3} className=" d-lg-block d-none ">
             <CustomNews />
             <Advertise />
             <ReducedCustomFooter />
