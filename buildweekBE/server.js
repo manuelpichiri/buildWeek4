@@ -18,7 +18,7 @@ server.use(cors());
 server.use(express.json());
 
 // route
-server.use("/user", userRoute);
+server.use("/", userRoute);
 server.use("/",experienceRoute)
 
 
