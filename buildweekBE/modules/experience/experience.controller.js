@@ -2,7 +2,7 @@ const experienceService = require("./experience.service");
 
 const getUserExperiences = async (req, res, next) => {
   try {
-    const userId = req.params.userId ;
+    const userId = req.params.userId;
     const { page = 1, pageSize = 3 } = req.query;
     const { totalExperience, totalPages, experiences } =
       await experienceService.getExperiencesByUser(userId, page, pageSize);
@@ -27,7 +27,8 @@ const getUserExperiences = async (req, res, next) => {
 
 const getExperienceByLogged = async (req, res, next) => {
   try {
-    const userLogged =req.user._id ;
+    const userLogged = req.user._id;
+
     const experiences =
       await experienceService.getExperienceByUserLogged(userLogged);
     res.status(200).json({
@@ -41,8 +42,8 @@ const getExperienceByLogged = async (req, res, next) => {
 
 const createExperienceLogged = async (req, res, next) => {
   try {
-    const { body } = req;
-    const idUserLogged =req.user._id ;
+    const { body } = req; //NON LEGGE USER!!!!!!!!!!!!!!!!!
+    const idUserLogged = req.user._id;
     const newExperience = await experienceService.createExperienceUserLogged(
       idUserLogged,
       body,
