@@ -55,7 +55,8 @@ const getUserId = async (req, res, next) => {
 };
 
 const loggedUser = (req,res) => {
-res. send( req.user)}
+res. send( req.user)
+}
 
 
 const createUser = async (req, res, next) => {

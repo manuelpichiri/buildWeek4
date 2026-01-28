@@ -24,6 +24,7 @@ const createExperienceUserLogged= async(userId,body)=>{
     ...body,
     user:userId
   })
+
   return await newExperience.save()
 }
 
