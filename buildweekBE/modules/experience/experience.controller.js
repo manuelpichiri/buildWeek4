@@ -42,12 +42,11 @@ const getExperienceByLogged = async (req, res, next) => {
 
 const createExperienceLogged = async (req, res, next) => {
   try {
-  const body= req.body
-    const idUserLogged = req.user.id;
-    body.user = idUserLogged;
+    const { body } = req; //NON LEGGE USER!!!!!!!!!!!!!!!!!
+    const idUserLogged = req.user._id;
     const newExperience = await experienceService.createExperienceUserLogged(
-   idUserLogged,
-   req.body
+      idUserLogged,
+      body,
     );
     res.status(201).json({
       newExperience,
