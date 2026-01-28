@@ -27,14 +27,15 @@ const getAllUser = async (req, res, next) => {
     next(error);
   }
 };
-
+//DA CONTROLLARE!!!!
 const getUserId = async (req, res, next) => {
   try {
-    const { id } = req.params;
+    const  id  = req.user.id
+    console.log(id)
     if (!id) {
       return res.status(400).json({
         statusCode: 400,
-        message: "invalid param",
+        message: "Invalid param",
       });
     }
     const user = await userService.geUsertById(id);
@@ -52,6 +53,10 @@ const getUserId = async (req, res, next) => {
     next(error);
   }
 };
+
+const loggedUser = (req,res) => {
+res. send( req.user)}
+
 
 const createUser = async (req, res, next) => {
   try {
@@ -109,6 +114,7 @@ const updateUser = async (req, res, next) => {
 module.exports = {
   getAllUser,
   getUserId,
+  loggedUser,
   createUser,
   uploadFileOnCloud,
   updateUser,
