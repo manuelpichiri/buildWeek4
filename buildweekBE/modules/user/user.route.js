@@ -1,10 +1,12 @@
-const express= require ('express')
-const router= express.Router()
-const userController= require ('./user.controller')
+const express = require('express')
+const router = express.Router()
+const userController = require('./user.controller')
+const { cloudUpload } = require('../../middleware/upload')
 
-router.get("/profile",userController.getAllUser)//tutti i profili
-router.get("/me",userController.loggedUser)//profilo del loggato
-router.post("/profile",userController.createUser)//crea nuovo profilo
-router.patch("/:id",userController.updateUser)//modifica prfilo, DA AGGIUNGERE TOKEN(posso modificare solo se mio profilo)
+router.get("/profile", userController.getAllUser)
+router.get("/me", userController.getUserId)
+router.post("/profile", userController.createUser)
+router.post("/profile/avatar", cloudUpload.single('avatar'), userController.uploadFileOnCloud)
+router.patch("/:id", userController.updateUser)
 
-module.exports=router
+module.exports = router

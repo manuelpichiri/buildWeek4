@@ -72,6 +72,17 @@ const createUser = async (req, res, next) => {
   }
 };
 
+const uploadFileOnCloud = async (req, res, next) => {
+  try {
+    const img = req.file.path
+    res.status(200).json({
+      img: img
+    })
+  } catch (error) {
+    next(error)
+  }
+}
+
 const updateUser = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -105,5 +116,6 @@ module.exports = {
   getUserId,
   loggedUser,
   createUser,
+  uploadFileOnCloud,
   updateUser,
 };
