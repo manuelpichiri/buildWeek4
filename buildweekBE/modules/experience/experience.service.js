@@ -1,3 +1,4 @@
+const UserSchema = require("../user/user.schema");
 const ExperienceSchema = require("./experience.schema");
 
 const getExperiencesByUser = async (userId, page, pageSize) => {
@@ -27,7 +28,11 @@ const createExperienceUserLogged = async (userId, body) => {
     user: userId,
   });
 
-  return await newExperience.save();
+  const savedExperience = await newExperience.save();
+
+  await UserSchema.updateOne({ _id: userId }, { $push: { experiences: savedExperience._id } })
+
+  return savedExperience
 };
 
 const updateExperienceByUserLogged = async (expId, userId, body) => {
