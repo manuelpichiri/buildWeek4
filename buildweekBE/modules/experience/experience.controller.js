@@ -1,8 +1,13 @@
+const InvalidOrMissingTokenException = require("../../exceptions/auth/InvalidOrMissingTokenException");
+const MissingUserId = require("../../exceptions/experience/MissingUserId");
 const experienceService = require("./experience.service");
 
 const getUserExperiences = async (req, res, next) => {
   try {
     const userId = req.params.userId;
+    if (!userId) {
+      throw new MissingUserId()
+    }
     const { page = 1, pageSize = 3 } = req.query;
     const { totalExperience, totalPages, experiences } =
       await experienceService.getExperiencesByUser(userId, page, pageSize);
@@ -27,7 +32,7 @@ const getUserExperiences = async (req, res, next) => {
 
 const getExperienceByLogged = async (req, res, next) => {
   try {
-    const userLogged = req.user._id;
+    const userLogged = req.user.id;
 
     const experiences =
       await experienceService.getExperienceByUserLogged(userLogged);
@@ -42,8 +47,8 @@ const getExperienceByLogged = async (req, res, next) => {
 
 const createExperienceLogged = async (req, res, next) => {
   try {
-    const { body } = req; //NON LEGGE USER!!!!!!!!!!!!!!!!!
-    const idUserLogged = req.user._id;
+    const { body } = req;
+    const idUserLogged = req.user.id;
     const newExperience = await experienceService.createExperienceUserLogged(
       idUserLogged,
       body,
@@ -59,7 +64,7 @@ const createExperienceLogged = async (req, res, next) => {
 
 const updateExperienceLogged = async (req, res, next) => {
   try {
-    const userId = req.user._id;
+    const userId = req.user.id;
     const { expId } = req.params;
     const { body } = req;
     const update = await experienceService.updateExperienceByUserLogged(

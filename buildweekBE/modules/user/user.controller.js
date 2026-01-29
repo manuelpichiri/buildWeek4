@@ -1,3 +1,4 @@
+const UserNotFoundException = require("../../exceptions/user/UserNotFoundException");
 const userService = require("./user.service");
 
 const getAllUser = async (req, res, next) => {
@@ -9,10 +10,7 @@ const getAllUser = async (req, res, next) => {
     );
 
     if (users.length === 0) {
-      return res.status(404).json({
-        statusCode: 404,
-        message: "User not found",
-      });
+      throw new UserNotFoundException()
     }
 
     res.status(200).send({
@@ -30,7 +28,7 @@ const getAllUser = async (req, res, next) => {
 //DA CONTROLLARE!!!!
 const getUserId = async (req, res, next) => {
   try {
-    const  id  = req.user.id
+    const id = req.user.id
     console.log(id)
     if (!id) {
       return res.status(400).json({
@@ -40,10 +38,7 @@ const getUserId = async (req, res, next) => {
     }
     const user = await userService.geUsertById(id);
     if (!user) {
-      return res.status(404).json({
-        statusCode: 404,
-        message: "User not found",
-      });
+      throw new UserNotFoundException()
     }
     res.status(200).json({
       statusCode: 200,
@@ -54,8 +49,8 @@ const getUserId = async (req, res, next) => {
   }
 };
 
-const loggedUser = (req,res) => {
-res. send( req.user)
+const loggedUser = (req, res) => {
+  res.send(req.user)
 }
 
 
@@ -97,10 +92,7 @@ const updateUser = async (req, res, next) => {
     }
     const user = await userService.updateUser(id, body);
     if (!user) {
-      return res.status(404).json({
-        statusCode: 404,
-        message: "User not found",
-      });
+      throw new UserNotFoundException()
     }
     res.status(200).send({
       statusCode: 200,

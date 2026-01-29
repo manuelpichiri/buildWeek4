@@ -1,11 +1,11 @@
-const authService= require('./auth.service')
+const authService = require('./auth.service')
 
-const login= async(req,res,next)=>{
+const login = async (req, res, next) => {
     try {
-        const response= await authService.login(req.body)
+        const response = await authService.login(req.body)
         res.status(200).json({
-            statusCode:200,
-            message:'Login succesfully',
+            statusCode: 200,
+            message: 'Login succesfully',
             token: response.token
         })
     } catch (error) {
@@ -13,4 +13,4 @@ const login= async(req,res,next)=>{
     }
 }
 
-module.exports={login}
+module.exports = { login }
