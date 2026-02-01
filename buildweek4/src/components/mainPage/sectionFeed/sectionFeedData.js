@@ -4,7 +4,7 @@ export const sectionFeedData = [
     authorName: "KMPG US",
     authorFollowersNum: "1.943.46",
     caption: "Discover how software industry leaders are reinventing their growth strategies, refining cost structures, and leveraging M&A amid the AI revolution. Our latest KPMG report offers insights you don’t want to miss: https://ow.ly/Ex3350XGj0C",
-    postSrcImg: "https://media.licdn.com/dms/image/v2/D4E10AQHapRE-uaTLSg/image-shrink_1280/B4EZsS3eM4GYAM-/0/1765548090691?e=1766444400&v=beta&t=CT5GSiBcN2qXfzd40YOHFsKyakNnJL5uEa3h_xYxFqE",
+    postSrcImg: "https://media.licdn.com/dms/image/v2/D4E10AQHapRE-uaTLSg/image-shrink_1280/B4EZsS3eM4GYAM-/0/1765548090691?e=1770559200&v=beta&t=ifh_SsmTbt0ztLDk4Sm1zt5ZOCZfkqKcY6VjOjll_5Q",
     timeAgo: "3 giorni",
     isSponsored: false,
   },
@@ -35,7 +35,7 @@ export const sectionFeedData = [
     Looking to better align your organization’s AI innovations with consumer expectations? 
 
     Download our research brief “From hype to habit” for critical insights: https://bit.ly/3MT0id2`,
-    postSrcImg: "https://media.licdn.com/dms/image/v2/D5622AQGa1zcIVrbp6g/feedshare-shrink_2048_1536/B56ZsNd7i2HAA0-/0/1765457510155?e=1767225600&v=beta&t=FYC2N2Eb-79yX6RROz6hTxH_TZnCjTPRISj2l9M_jv4",
+    postSrcImg: "https://media.licdn.com/dms/image/v2/D5622AQGa1zcIVrbp6g/feedshare-shrink_2048_1536/B56ZsNd7i2HAA0-/0/1765457510155?e=1771459200&v=beta&t=_5vLN19nDFQE3NEkk4vgGhdnHlFGoth9o6wdowlbRBo",
     timeAgo: "4 giorni",
     isSponsored: false,
   },
@@ -46,7 +46,7 @@ export const sectionFeedData = [
     caption: `From “always on Zoom” to “always outdoors”, we’ve got gifting covered. Our guide is tailored to real people — the adventurer, the techie, the homebody — so you can give thoughtfully and with purpose. Discover global gifting ideas at the Accenture Store. https://accntu.re/4ogJc5R
 
     [Image Description: A slideshow of six gifting personas from the Accenture Gift Guide — the Well-being Warrior, Tech Trailblazer, Ultimate Sports Fan, Cozy Homebody, Weekend Wanderer, and Accenture Enthusiast — each surrounded by themed gift items, from yoga mats and candles to drones, jerseys, blankets, and branded Accenture gear.]`,
-    postSrcImg: "https://media.licdn.com/dms/image/v2/D5610AQGqpM6HU7TTcw/ads-document-images_1280/B56ZrFZjSOHkAo-/1/1764248405340?e=1766620800&v=beta&t=ovOUFShmrXucYVARs-gnOKllAs8vHu3XlBJYnNN-Ato",
+    postSrcImg: "https://media.licdn.com/dms/image/v2/D5610AQGqpM6HU7TTcw/ads-document-images_1280/B56ZrFZjSOHkAo-/1/1764248405340?e=1770854400&v=beta&t=A6OyE8_pNRnNbisbmq_KAQodT9unBNzdEzspRgIuQlI",
     timeAgo: "2s",
     isSponsored: false,
   },

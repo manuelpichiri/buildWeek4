@@ -8,37 +8,41 @@ import {
   Bookmark,
   CornerUpRight,
   Image,
+  BriefcaseBusiness,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { getMyProfile } from "../../api/profileApi";
+/* import { getMyProfile } from "../../api/profileApi";*/
 import "./style.css";
-
 import ProfileModalChange from "../profileModalChange/ProfileModalChange";
 import ModalCustom from "../ModalCustom/ModalCustomSectionProfile";
 import ModalCustomUpgradeProfile from "../ModalCustomUpgradeProfile/ModalCustomUpgradeProfile";
+import useAuthentication from "../../hooks/useAuthentication";
+
 const ProfileHero = () => {
   const [show, setShow] = useState(false);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [showProfileChanges, setShowProfileChanges] = useState(false);
-  const [profileAttribute, setProfileAttribute] = useState(null);
-  const [showDropDown, setShowDropDown] = useState(false);
+  /* const [profileAttribute, setProfileAttribute] = useState(null);
+  const [showDropDown, setShowDropDown] = useState(false); */
 
-  const fetchProfile = async () => {
+  const { authData, getProfile } = useAuthentication()
+
+  /* const fetchProfile = async () => {
     try {
       const myProfile = await getMyProfile();
       setProfileAttribute(myProfile);
     } catch (error) {
       console.log(error);
     }
-  };
+  }; */
 
-  const toggleDropDown = () => {
+  /* const toggleDropDown = () => {
     if (showDropDown === true) {
       setShowDropDown(false);
     } else {
       setShowDropDown(true);
     }
-  };
+  }; */
 
   const toggleModifyModal = () => {
     if (showProfileChanges === true) {
@@ -64,13 +68,13 @@ const ProfileHero = () => {
     }
   };
   useEffect(() => {
-    fetchProfile();
+    getProfile();
   }, []);
 
   return (
     <>
       <Container className="border-col bg-white  mb-2">
-        {profileAttribute && (
+        {authData && (
           <>
             <Row>
               <Col md={12} className="p-0 ">
@@ -109,7 +113,7 @@ const ProfileHero = () => {
                     <div>
                       <img
                         className="image-profile"
-                        src={profileAttribute.image}
+                        src={authData.avatar}
                       />
                     </div>
                     <div className="d-flex justify-content-end  p-2">
@@ -123,6 +127,7 @@ const ProfileHero = () => {
                         <ProfileModalChange
                           showProfileChanges={showProfileChanges}
                           toggleModifyModal={toggleModifyModal}
+                          authData={authData}
                         ></ProfileModalChange>
                       )}
                     </div>
@@ -134,7 +139,7 @@ const ProfileHero = () => {
               <Col xs={12} md={8} className="p-0   mt-2">
                 <div className="d-flex align-items-center gap-1 text-nowrap ">
                   <h3 className="p-0 m-0">
-                    {profileAttribute.name} {profileAttribute.surname}
+                    {authData.name} {authData.surname}
                   </h3>
                   <a className="m-0 div-dotted text-primary d-flex align-items-center   ">
                     {" "}
@@ -146,14 +151,18 @@ const ProfileHero = () => {
                 </div>
               </Col>
               <Col xs={5} md={5} lg={4} className="p-0 media-col mt-2">
-                <div className="d-flex justify-content-end flex-wrap me-2">
-                  <a className="p-0 m-0">
+                <div className="d-flex align-items-center justify-content-start gap-2 flex-wrap me-2">
+                  <BriefcaseBusiness />
+                  <p
+                    className="m-0"
+                  >{authData.jobTitle || "React Developer"}</p>
+                  {/* <a className="p-0 m-0">
                     <img
                       className="custom-img-study me-1"
                       src="/assets/UniRoma3.jpg"
                     />
                     Università degli studi di Roma
-                  </a>
+                  </a> */}
                 </div>
               </Col>
             </Row>
@@ -161,7 +170,7 @@ const ProfileHero = () => {
               <Col md={6} lg={12} className="p-0 bg-white">
                 <div className="d-flex   align-items-center ">
                   <p className="m-0 p-custom-profile ">
-                    {profileAttribute.area}
+                    {authData.area}
                   </p>
                   <Dot size={10} />
                   <a className="m-0 text-primary link-decoration   ">

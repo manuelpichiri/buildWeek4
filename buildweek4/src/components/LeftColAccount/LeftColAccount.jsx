@@ -1,27 +1,20 @@
 import { Col, Row, Container } from "react-bootstrap";
 import "./style.css";
 import { Bookmark, Users, Calendar1, Newspaper } from "lucide-react";
-import { getMyProfile } from "../../api/profileApi";
-import { useState, useEffect } from "react";
-// PICCOLA PARENTESI TUTTI GLI ANCHOR [A] SARANNO POI SOSTITUITI DAI LINK DI REACT UTILIZZATI PER LE ROOT.
-const LefColAccount = () => {
-  const [profileAttribute, setProfileAttribute] = useState(null);
+import { useEffect } from "react";
+import useAuthentication from "../../hooks/useAuthentication";
 
-  const fetchProfile = async () => {
-    try {
-      const myProfile = await getMyProfile();
-      setProfileAttribute(myProfile);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+const LefColAccount = () => {
+
+  const { authData, getProfile } = useAuthentication()
+
   useEffect(() => {
-    fetchProfile();
+    getProfile();
   }, []);
   return (
     <>
       <Container fluid>
-        {profileAttribute && (
+        {authData && (
           <>
             <Row>
               <Col className="reset-padding">
@@ -38,14 +31,14 @@ const LefColAccount = () => {
                     <a href="#">
                       <img
                         className="account-img"
-                        src={profileAttribute.image}
+                        src={authData.avatar}
                       />
                     </a>
                   </div>
                   <div className="mt-5 ms-3 d-flex flex-column ">
                     <a className="link-custom" href="#">
                       <h3 className="m-0">
-                        {profileAttribute.name} {profileAttribute.surname}
+                        {authData.name} {authData.surname}
                       </h3>
 
                       {/* ⬆️il nome dell' account loggato va riportato qui  */}
@@ -53,7 +46,7 @@ const LefColAccount = () => {
                     <a href="#" className="link-custom">
                       <p className="paragraph-custom-city m-0">
                         <span className="span-custom">
-                          {profileAttribute.area}
+                          {authData.area}
                         </span>
                       </p>
                       {/* ⬆️ il nome della città relativa al profilo loggato va riportato qui  */}

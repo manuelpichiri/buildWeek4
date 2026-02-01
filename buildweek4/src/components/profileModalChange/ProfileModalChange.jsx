@@ -1,32 +1,46 @@
-import { useEffect, useState } from "react";
-import { getMyProfile, updateProfile } from "../../api/profileApi";
+import { useState } from "react";
+/* import { getMyProfile, updateProfile } from "../../api/profileApi"; */
 import "./style.css";
 import { Modal } from "react-bootstrap";
+import useAuthentication from "../../hooks/useAuthentication";
 
-const ProfileModalChange = ({ showProfileChanges, toggleModifyModal }) => {
-  const [profile, setProfile] = useState(null);
+const ProfileModalChange = ({ showProfileChanges, toggleModifyModal, authData }) => {
+  /* const [profile, setProfile] = useState(null);
   const [isLoadingProfile, setIsLoadingProfile] = useState(false);
-  const [errorProfile, setErrorProfile] = useState("");
+  const [errorProfile, setErrorProfile] = useState(""); */
+
+  const { updateProfile } = useAuthentication()
+
+  const loggedUserId = authData._id
 
   const [profileForm, setProfileForm] = useState({
-    name: "",
-    surname: "",
-    title: "",
-    bio: "",
-    area: "",
-    image: "",
-  });
+    name: authData.name || "",
+    surname: authData.surname || "",
+    jobTitle: authData.jobTitle || "",
+    bio: authData.bio || "",
+    area: authData.area || "",
+    avatar: authData.avatar || "",
+  })
 
   const handleProfileChange = (e) => {
     const { name, value } = e.target;
 
-    setProfileForm((prev) => ({ ...prev, [name]: value }));
+    setProfileForm({
+      ...profileForm,
+      [name]: value
+    })
   };
 
   const handleProfileSubmit = async (e) => {
     e.preventDefault();
 
-    try {
+    const result = await updateProfile(profileForm, loggedUserId)
+
+    if (result) {
+      alert("Profilo aggiornato con successo!");
+    }
+
+    /* try {
       const updated = await updateProfile(profileForm);
 
       setProfile(updated);
@@ -34,10 +48,10 @@ const ProfileModalChange = ({ showProfileChanges, toggleModifyModal }) => {
       alert("Profilo aggiornato con successo!");
     } catch (err) {
       console.log(err.message);
-    }
+    } */
   };
 
-  const fetchProfile = async () => {
+  /* const fetchProfile = async () => {
     setIsLoadingProfile(true);
 
     try {
@@ -50,11 +64,11 @@ const ProfileModalChange = ({ showProfileChanges, toggleModifyModal }) => {
     } finally {
       setIsLoadingProfile(false);
     }
-  };
+  }; */
 
-  useEffect(() => {
+  /* useEffect(() => {
     fetchProfile();
-  }, []);
+  }, []); */
 
   return (
     <>
@@ -92,11 +106,11 @@ const ProfileModalChange = ({ showProfileChanges, toggleModifyModal }) => {
               </div>
               <div className="d-flex justify-content-center flex-column">
                 <h4>Posizione attuale</h4>
-                <label>Settore*</label>
+                <label>Job Title</label>
                 <input
                   type="text"
-                  name="title"
-                  value={profileForm.title}
+                  name="jobTitle"
+                  value={profileForm.jobTitle}
                   onChange={handleProfileChange}
                 />
 
@@ -120,13 +134,18 @@ const ProfileModalChange = ({ showProfileChanges, toggleModifyModal }) => {
                 <label>Image URL:</label>
                 <input
                   type="text"
-                  name="image"
-                  value={profileForm.image}
+                  name="avatar"
+                  value={profileForm.avatar}
                   onChange={handleProfileChange}
                 />
               </div>
-              <div className="d-flex justify-content-end">
-                <button className="btn btn-primary button-save" type="submit">
+              <div
+                className="d-flex justify-content-end"
+              >
+                <button
+                  className="btn btn-primary button-save"
+                  type="submit"
+                >
                   Salva
                 </button>
               </div>
