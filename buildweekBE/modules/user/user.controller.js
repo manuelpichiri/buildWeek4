@@ -49,14 +49,31 @@ const getUserId = async (req, res, next) => {
   }
 };
 
-const loggedUser = (req, res) => {
-  res.send(req.user)
+const loggedUser = async (req, res, next) => {
+  try {
+    const user = await userService.geUsertById(req.user.id)
+
+    if (!user) {
+      throw new UserNotFoundException()
+    }
+
+    res.status(200).json(user);
+  } catch (error) {
+    next(error)
+  }
 }
 
 
 const createUser = async (req, res, next) => {
+  const { body } = req
   try {
-    const { body } = req;
+    const existingUserEmail = await userService.getUserByEmail(body.email)
+    if (existingUserEmail) {
+      return res.status(400).send({
+        statusCode: 400,
+        message: "Email already exists"
+      })
+    }
     const newUser = await userService.createUser(body);
     res.status(201).send({
       statusCode: 201,

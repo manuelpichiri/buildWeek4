@@ -19,11 +19,15 @@ const User = new mongoose.Schema(
       type: String,
       required: true,
     },
+    jobTitle: {
+      type: String,
+    },
     bio: {
       type: String,
     },
     avatar: {
       type: String,
+      default: "https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3485.jpg?w=360"
     },
     experiences: [
       {
@@ -32,6 +36,9 @@ const User = new mongoose.Schema(
         default: [],
       },
     ],
+    area: {
+      type: String
+    }
   },
   { timestamps: true, strict: true },
 );

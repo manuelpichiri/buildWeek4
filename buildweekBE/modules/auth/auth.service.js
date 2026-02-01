@@ -22,6 +22,8 @@ const login = async (body) => {
       name: user.name,
       surname: user.surname,
       email: user.email,
+      avatar: user.avatar,
+      jobTitle: user.jobTitle
     },
     process.env.JWT_SECRET,
     {
