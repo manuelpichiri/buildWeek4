@@ -15,6 +15,7 @@ router.post(
   cloudUpload.single("avatar"),
   userController.uploadFileOnCloud,
 );
-router.patch("/:id", userController.updateUser);
+
+router.patch("/me/:id", userController.updateUser);
 
 module.exports = router;
