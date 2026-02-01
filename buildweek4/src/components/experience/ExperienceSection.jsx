@@ -1,53 +1,24 @@
 import { useState, useEffect } from "react";
 import AddExperienceModal from "./addExperienceModal";
-import { getMyProfile } from "../../api/profileApi";
 import { Pencil, Plus, Trash2 } from "lucide-react";
 import "./experience.css";
-import { useExperiences } from "../hook/useExperiences";
 import { Alert, Spinner } from "react-bootstrap";
 import DeleteExperienceModal from "./DeleteExperiencemodal";
 import EditExperienceModal from "./EditExperienceModal";
+import useExperiences from "../../hooks/useExperiences"
 
 const ExperienceSection = () => {
 
-  const [profile, setProfile] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [deletingExpId, setDeletingExpId] = useState(null);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editingExp, setEditingExp] = useState(null)
 
-  const {
-    data,
-    isLoading,
-    error,
-    setError,
-    deleteExperience,
-    addExperience,
-    updateExperience,
-    fetchData
-  } = useExperiences(profile?._id)
-
-  const fetchProfile = async () => {
-
-    try {
-
-      const myProfileData = await getMyProfile();
-
-      setProfile(myProfileData);
-
-    } catch (error) {
-
-      console.log(error)
-
-    }
-
-  }
+  const { getLoggedUserExperiences, createExperience, deleteExperience, updateExperience, experiencesData, experiencesIsLoading, experiencesError, setExperiencesError } = useExperiences()
 
   useEffect(() => {
-
-    fetchProfile()
-
+    getLoggedUserExperiences()
   }, [])
 
   const confirmDelete = (expId) => {
@@ -61,16 +32,17 @@ const ExperienceSection = () => {
 
     if (deletingExpId) {
 
-      const isDeleted = await deleteExperience(deletingExpId);
+      const isDeleted = await deleteExperience(deletingExpId)
 
       if (isDeleted) {
 
-        setShowDeleteModal(false);
-        setDeletingExpId(null);
+        setShowDeleteModal(false)
+        setDeletingExpId(null)
+        getLoggedUserExperiences()
 
       }
     }
-  };
+  }
 
   const handleShowEditModal = (exp) => {
 
@@ -80,12 +52,12 @@ const ExperienceSection = () => {
 
   }
 
-  const handleCloseEditModal = (expId) => {
+  const handleCloseEditModal = () => {
 
     setShowEditModal(false);
     setEditingExp(null);
-    setError(null);
-    fetchData()
+    setExperiencesError(null);
+    getLoggedUserExperiences()
 
   }
 
@@ -96,20 +68,20 @@ const ExperienceSection = () => {
           <h3>Esperienza</h3>
           <button className="add-btn" onClick={() => {
             setOpenModal(true)
-            setError(null)
+            setExperiencesError(null)
           }}>
             <Plus size={18} />
           </button>
         </div>
 
-        {isLoading &&
+        {experiencesIsLoading &&
           <Spinner
             className="d-block mx-auto"
           />
         }
 
-        {!isLoading && data?.length > 0 && (
-          data.map((exp) => (
+        {!experiencesIsLoading && experiencesData?.length > 0 && (
+          experiencesData.map((exp) => (
             <div className="exp-card" key={exp._id}>
               <div className="exp-info">
                 <div
@@ -156,7 +128,7 @@ const ExperienceSection = () => {
         )}
 
 
-        {!isLoading && profile?._id && data.length === 0 && !error && (
+        {!experiencesIsLoading && experiencesData.length === 0 && !experiencesError && (
 
           <Alert
             className="bg-light border-secondary"
@@ -166,12 +138,12 @@ const ExperienceSection = () => {
             <p>Ti consigliamo di aggiungere al profilo la tua esperienza lavorativa, così potrai mostrare ai recruiter come metti a frutto le tue competenze.</p></Alert>
         )}
 
-        {!isLoading && data.length === 0 && error && (
+        {!experiencesIsLoading && experiencesData.length === 0 && experiencesError && (
           <Alert
             className="text-center"
             variant="danger"
           >
-            {error}
+            {experiencesError}
           </Alert>
         )}
 
@@ -179,12 +151,12 @@ const ExperienceSection = () => {
           <AddExperienceModal
             onClose={() => {
               setOpenModal(false)
-              setError(null)
+              setExperiencesError(null)
             }}
-            userId={profile?._id}
-            addExp={addExperience}
-            isLoading={isLoading}
-            error={error}
+            addExp={createExperience}
+            isLoading={experiencesIsLoading}
+            error={experiencesError}
+            getExperiences={getLoggedUserExperiences}
           />
         )}
       </div>
@@ -193,18 +165,18 @@ const ExperienceSection = () => {
         handleClose={() => {
           setShowDeleteModal(false)
           setDeletingExpId(null)
-          setError(null)
+          setExperiencesError(null)
         }}
         onConfirm={handleConfirmDelete}
-        isLoading={isLoading}
-        error={error}
+        isLoading={experiencesIsLoading}
+        error={experiencesError}
         deletingExpId={deletingExpId}
       />
       <EditExperienceModal
         show={showEditModal}
         handleClose={handleCloseEditModal}
-        isLoading={isLoading}
-        error={error}
+        isLoading={experiencesIsLoading}
+        error={experiencesError}
         editingExp={editingExp}
         updateExperience={updateExperience}
       />

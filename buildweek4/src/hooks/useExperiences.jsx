@@ -48,7 +48,7 @@ const useExperiences = () => {
       }
 
       const data = await response.json()
-      setExperiencesData(data)
+      setExperiencesData(data.experiences)
       return data
     } catch (error) {
       setExperiencesError(error.message)
@@ -84,13 +84,68 @@ const useExperiences = () => {
     }
   }
 
+  const updateExperience = async (expId, updatedExp) => {
+    setExperiencesIsLoading(true)
+    try {
+      const token = localStorage.getItem('token')
+      const response = await fetch(`${URL}/${expId}`, {
+        method: "PATCH",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify(updatedExp)
+      })
+
+      if (!response.ok) {
+        const errorResponse = await response.json()
+        throw new Error(errorResponse.message)
+      }
+
+      const data = await response.json()
+      return data
+    } catch (error) {
+      setExperiencesError(error.message)
+    } finally {
+      setExperiencesIsLoading(false)
+    }
+  }
+
+  const deleteExperience = async (expId) => {
+    setExperiencesIsLoading(true)
+    try {
+      const token = localStorage.getItem('token')
+      const response = await fetch(`${URL}/${expId}`, {
+        method: "DELETE",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+        }
+      })
+
+      if (!response.ok) {
+        const errorResponse = await response.json()
+        throw new Error(errorResponse.message)
+      }
+
+      const data = await response.json()
+      return data
+    } catch (error) {
+      setExperiencesError(error.message)
+    } finally {
+      setExperiencesIsLoading(false)
+    }
+  }
+
   return {
     experiencesIsLoading,
     experiencesData,
     experiencesError,
+    setExperiencesError,
     getExperiencesByUserId,
     getLoggedUserExperiences,
-    createExperience
+    createExperience,
+    updateExperience,
+    deleteExperience
   }
 }
 

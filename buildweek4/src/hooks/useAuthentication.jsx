@@ -36,7 +36,7 @@ const useAuthentication = () => {
     setAuthIsLoading(true)
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`${URL}/${loggedUserId}`, {
+      const response = await fetch(`${URL}/me/${loggedUserId}`, {
         method: 'PATCH',
         headers: {
           "Content-type": "application/json",

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal, Button, Form, Spinner, Alert } from "react-bootstrap";
 
-const AddExperienceModal = ({ onClose, addExp, isLoading, error }) => {
+const AddExperienceModal = ({ onClose, addExp, isLoading, error, getExperiences }) => {
 
   const [form, setForm] = useState({
     role: "",
@@ -13,7 +13,11 @@ const AddExperienceModal = ({ onClose, addExp, isLoading, error }) => {
   });
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target
+    setForm({
+      ...form,
+      [name]: value
+    });
   };
 
   const formatDate = (date) => {
@@ -37,6 +41,7 @@ const AddExperienceModal = ({ onClose, addExp, isLoading, error }) => {
     const addedExp = await addExp(newExperience)
 
     if (addedExp) {
+      await getExperiences()
       onClose();
     }
 
