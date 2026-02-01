@@ -21,12 +21,15 @@ const geUsertById = async (id) => {
   return user;
 };
 
+const getUserByEmail = async (email) => {
+  const existingUser = await UserSchema.findOne({ email })
+  return existingUser
+}
+
 const createUser = async (body) => {
   const newUser = new UserSchema(body);
   return await newUser.save();
 };
-
-// MANCA CARICAMENTO IMMAGINE PROFILO
 
 const updateUser = async (id, body) => {
   return UserSchema.findByIdAndUpdate(id, body, { new: true });
@@ -35,6 +38,7 @@ const updateUser = async (id, body) => {
 module.exports = {
   getAllUsers,
   geUsertById,
+  getUserByEmail,
   createUser,
   updateUser,
 };
