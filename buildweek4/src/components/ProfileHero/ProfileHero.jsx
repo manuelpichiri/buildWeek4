@@ -155,7 +155,7 @@ const ProfileHero = () => {
                   <BriefcaseBusiness />
                   <p
                     className="m-0"
-                  >{authData.jobTitle || "React Developer"}</p>
+                  >{authData.jobTitle || "Job Title"}</p>
                   {/* <a className="p-0 m-0">
                     <img
                       className="custom-img-study me-1"
@@ -170,7 +170,7 @@ const ProfileHero = () => {
               <Col md={6} lg={12} className="p-0 bg-white">
                 <div className="d-flex   align-items-center ">
                   <p className="m-0 p-custom-profile ">
-                    {authData.area}
+                    {authData.area || "City, Region, Country"}
                   </p>
                   <Dot size={10} />
                   <a className="m-0 text-primary link-decoration   ">
