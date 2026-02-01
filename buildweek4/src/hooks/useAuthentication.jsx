@@ -32,6 +32,36 @@ const useAuthentication = () => {
     }
   }
 
+  const updateProfile = async (body, loggedUserId) => {
+    setAuthIsLoading(true)
+    try {
+      const token = localStorage.getItem('token')
+      const response = await fetch(`${URL}/${loggedUserId}`, {
+        method: 'PATCH',
+        headers: {
+          "Content-type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(body)
+      })
+
+      if (!response.ok) {
+        const errorResponse = await response.json()
+        throw new Error(errorResponse.message)
+      }
+
+      const data = await response.json()
+      if (response.status === 201) {
+        setAuthData(data)
+      }
+      return data
+    } catch (error) {
+      setAuthError(error.message)
+    } finally {
+      setAuthIsLoading(false)
+    }
+  }
+
   const loginAndGetToken = async (body) => {
     setAuthIsLoading(true)
     try {
@@ -66,6 +96,7 @@ const useAuthentication = () => {
     authData,
     authError,
     getProfile,
+    updateProfile,
     loginAndGetToken
   }
 }

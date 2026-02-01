@@ -1,7 +1,16 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "./style.css";
+import useAuthentication from "../../../hooks/useAuthentication";
+import { useEffect } from "react";
 
 const SectionSearchInput = () => {
+
+  const {authData, getProfile} = useAuthentication()
+
+  useEffect(() => {
+    getProfile()
+  }, [])
+
   return (
     <Container className="mt-4 d-flex flex-column gap-1 section-search bg-white">
       <Row>
@@ -9,7 +18,7 @@ const SectionSearchInput = () => {
           <div>
             <img
               className="img-account"
-              src="../../../assets/images.png"
+              src={authData?.avatar}
               alt="profilo"
             />
           </div>
