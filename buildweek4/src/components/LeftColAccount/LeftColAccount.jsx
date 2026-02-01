@@ -37,10 +37,16 @@ const LefColAccount = () => {
                   </div>
                   <div className="mt-5 ms-3 d-flex flex-column ">
                     <a className="link-custom" href="#">
-                      <h3 className="m-0">
+                      <div
+                        className="d-flex flex-column"
+                      >
+                        <h3 className="m-0">
                         {authData.name} {authData.surname}
                       </h3>
-
+                      <p
+                        className="m-0"
+                      >{authData.jobTitle || "Job Title"}</p>
+                      </div>
                       {/* ⬆️il nome dell' account loggato va riportato qui  */}
                     </a>
                     <a href="#" className="link-custom">

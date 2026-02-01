@@ -1,13 +1,9 @@
 import { useState } from "react";
-/* import { getMyProfile, updateProfile } from "../../api/profileApi"; */
 import "./style.css";
 import { Modal } from "react-bootstrap";
 import useAuthentication from "../../hooks/useAuthentication";
 
-const ProfileModalChange = ({ showProfileChanges, toggleModifyModal, authData }) => {
-  /* const [profile, setProfile] = useState(null);
-  const [isLoadingProfile, setIsLoadingProfile] = useState(false);
-  const [errorProfile, setErrorProfile] = useState(""); */
+const ProfileModalChange = ({ showProfileChanges, toggleModifyModal, authData, refreshProfile }) => {
 
   const { updateProfile } = useAuthentication()
 
@@ -37,38 +33,11 @@ const ProfileModalChange = ({ showProfileChanges, toggleModifyModal, authData })
     const result = await updateProfile(profileForm, loggedUserId)
 
     if (result) {
-      alert("Profilo aggiornato con successo!");
+      alert("Profilo aggiornato con successo!")
+      refreshProfile()
+      toggleModifyModal()
     }
-
-    /* try {
-      const updated = await updateProfile(profileForm);
-
-      setProfile(updated);
-
-      alert("Profilo aggiornato con successo!");
-    } catch (err) {
-      console.log(err.message);
-    } */
   };
-
-  /* const fetchProfile = async () => {
-    setIsLoadingProfile(true);
-
-    try {
-      const myProfileData = await getMyProfile();
-
-      setProfile(myProfileData);
-      setProfileForm(myProfileData);
-    } catch (error) {
-      setErrorProfile(error.message);
-    } finally {
-      setIsLoadingProfile(false);
-    }
-  }; */
-
-  /* useEffect(() => {
-    fetchProfile();
-  }, []); */
 
   return (
     <>

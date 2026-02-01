@@ -20,7 +20,11 @@ const EditExperienceModal = ({
   });
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target
+    setForm({
+      ...form,
+      [name]: value
+    });
   };
 
   const formatDate = (date) => {

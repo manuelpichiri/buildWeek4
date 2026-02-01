@@ -8,10 +8,8 @@ import {
   Bookmark,
   CornerUpRight,
   Image,
-  BriefcaseBusiness,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-/* import { getMyProfile } from "../../api/profileApi";*/
 import "./style.css";
 import ProfileModalChange from "../profileModalChange/ProfileModalChange";
 import ModalCustom from "../ModalCustom/ModalCustomSectionProfile";
@@ -22,27 +20,8 @@ const ProfileHero = () => {
   const [show, setShow] = useState(false);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
   const [showProfileChanges, setShowProfileChanges] = useState(false);
-  /* const [profileAttribute, setProfileAttribute] = useState(null);
-  const [showDropDown, setShowDropDown] = useState(false); */
 
   const { authData, getProfile } = useAuthentication()
-
-  /* const fetchProfile = async () => {
-    try {
-      const myProfile = await getMyProfile();
-      setProfileAttribute(myProfile);
-    } catch (error) {
-      console.log(error);
-    }
-  }; */
-
-  /* const toggleDropDown = () => {
-    if (showDropDown === true) {
-      setShowDropDown(false);
-    } else {
-      setShowDropDown(true);
-    }
-  }; */
 
   const toggleModifyModal = () => {
     if (showProfileChanges === true) {
@@ -128,6 +107,7 @@ const ProfileHero = () => {
                           showProfileChanges={showProfileChanges}
                           toggleModifyModal={toggleModifyModal}
                           authData={authData}
+                          refreshProfile={getProfile}
                         ></ProfileModalChange>
                       )}
                     </div>
@@ -137,10 +117,17 @@ const ProfileHero = () => {
             </Row>
             <Row className="ms-2  align-items-center ">
               <Col xs={12} md={8} className="p-0   mt-2">
-                <div className="d-flex align-items-center gap-1 text-nowrap ">
-                  <h3 className="p-0 m-0">
-                    {authData.name} {authData.surname}
-                  </h3>
+                <div className="d-flex align-items-start gap-1 text-nowrap ">
+                  <div
+                    className="d-flex flex-column"
+                  >
+                    <h3 className="p-0 m-0">
+                      {authData.name} {authData.surname}
+                    </h3>
+                    <p
+                      className="m-0"
+                    >{authData.jobTitle || "Job Title"}</p>
+                  </div>
                   <a className="m-0 div-dotted text-primary d-flex align-items-center   ">
                     {" "}
                     <ShieldCheck size={17} />{" "}
@@ -152,17 +139,13 @@ const ProfileHero = () => {
               </Col>
               <Col xs={5} md={5} lg={4} className="p-0 media-col mt-2">
                 <div className="d-flex align-items-center justify-content-start gap-2 flex-wrap me-2">
-                  <BriefcaseBusiness />
-                  <p
-                    className="m-0"
-                  >{authData.jobTitle || "Job Title"}</p>
-                  {/* <a className="p-0 m-0">
+                  <a className="p-0 m-0">
                     <img
                       className="custom-img-study me-1"
                       src="/assets/UniRoma3.jpg"
                     />
                     Università degli studi di Roma
-                  </a> */}
+                  </a>
                 </div>
               </Col>
             </Row>
