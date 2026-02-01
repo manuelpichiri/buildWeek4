@@ -40,12 +40,24 @@ const updateExperienceByUserLogged = async (expId, userId, body) => {
     { _id: expId, user: userId },
     body,
     { new: true },
-  );
-};
+  )
+}
+
+const deleteExperience = async (expId, userId) => {
+  const deletedExp = await ExperienceSchema.findOneAndDelete({ _id: expId, user: userId })
+
+  await UserSchema.updateOne(
+    { _id: userId },
+    { $pull: { experiences: expId } }
+  )
+
+  return deletedExp
+}
 
 module.exports = {
   getExperiencesByUser,
   getExperienceByUserLogged,
   createExperienceUserLogged,
   updateExperienceByUserLogged,
+  deleteExperience
 };

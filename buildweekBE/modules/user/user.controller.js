@@ -98,7 +98,7 @@ const uploadFileOnCloud = async (req, res, next) => {
 
 const updateUser = async (req, res, next) => {
   try {
-    const { id } = req.params;
+    const { id } = req.user;
     const { body } = req;
 
     if (!id) {

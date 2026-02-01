@@ -81,9 +81,31 @@ const updateExperienceLogged = async (req, res, next) => {
   }
 };
 
+const deleteExperienceLogged = async (req, res, next) => {
+  const userId = req.user.id
+  const { expId } = req.params
+  try {
+    if (!expId) {
+      return res.status(400).send({
+        statusCode: 400,
+        message: "Invalid param provided"
+      })
+    }
+    await experienceService.deleteExperience(expId, userId)
+
+    res.status(200).send({
+      statusCode: 200,
+      message: "Experience deleted successfully"
+    })
+  } catch (error) {
+    next(error)
+  }
+}
+
 module.exports = {
   getUserExperiences,
   getExperienceByLogged,
   createExperienceLogged,
   updateExperienceLogged,
+  deleteExperienceLogged
 };
